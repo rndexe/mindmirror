@@ -1,0 +1,332 @@
+:root {
+    --background-color: rgb(16, 15, 15);
+    --text-color-dark: rgb(226, 220, 200);
+    --text-color: rgb(241, 241, 241);
+    --gold: rgb(218, 165, 32);
+}
+
+body {
+    background-color: var(--background-color);
+    scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+    color: var(--text-color);
+}
+
+h1,
+h2 {
+    font-family: "caslon_antique";
+}
+
+h3,
+h4,
+p {
+    font-family: "Vollkorn";
+}
+h2 {
+    font-size: 3rem;
+}
+
+h3 {
+    font-size: 1.45rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+p {
+    font-size: 1rem;
+}
+
+a {
+    appearance: none;
+    color: rgb(218, 165, 32);
+    text-decoration: none;
+}
+
+.wrapper {
+    margin: auto;
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    padding-bottom: 8rem;
+}
+
+.prose {
+    max-width: 48rem;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    place-content: center;
+    min-height: 100vh;
+    text-align: center;
+    gap: 2rem;
+}
+.hero div {
+    position: relative;
+}
+.hero h1 {
+    font-size: 5rem;
+    line-height: 0.8;
+    text-transform: lowercase;
+    color: var(--gold);
+    z-index: 1;
+    text-shadow: 1px 1px 2px black;
+    animation: fadeInAnimation 2s ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.hero #moonphase {
+    filter: brightness(50%);
+    margin-inline: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out;
+    animation-delay: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.button {
+    color: var(--background-color);
+    background-color: var(--gold);
+    font-size: 1rem;
+    font-family: "Vollkorn";
+    padding: 0.5rem 5rem;
+    cursor: pointer;
+    border-radius: 9999px;
+    transition: background 500ms ease-in, color 500ms ease-in;
+    animation: fadeInAnimation 4s ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.button:hover {
+    background-color: var(--text-color);
+}
+
+
+.tagline {
+    padding: 2rem;
+    text-align: center;
+    max-width: 64ch;
+    text-shadow: 1px 1px 2px black;
+    animation: fadeInAnimation 3s ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.tagline span {
+    font-style: italic;
+}
+
+.services {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+.card-container {
+    border: 1px solid var(--gold);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.25rem;
+    gap: 2rem;
+    transition: background 500ms ease-in-out;
+}
+.card-container:hover {
+    background-color: rgb(218, 165, 32, 0.2);
+}
+
+.card-container div {
+    text-align: center;
+}
+.about img {
+    margin-inline: auto;
+    border: 2px solid rgb(218, 165, 32, 0.8);
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin-block-end: 2rem;
+}
+.about p:first-of-type {
+ text-align: center;
+}
+.about p {
+    margin-bottom: 2rem;
+}
+
+.footer {
+    height: 2rem;
+    background-color: transparent;
+    color: var(--text-color);
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.footer p {
+    font-size: 0.9rem;
+    padding-inline-start: 1rem;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -2;
+}
+
+.stars {
+    background: black url("/assets/images/stars-fs8.png") repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: -5;
+}
+
+.twinkling {
+    width: 10000px;
+    height: 100%;
+    background: transparent url("/assets/images/twinkling-fs8.png") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -4;
+
+    animation: move-background 70s linear infinite;
+}
+
+@keyframes move-background {
+    from {
+        transform: translate3d(0px, 0px, 0px);
+    }
+    to {
+        transform: translate3d(1000px, 0px, 0px);
+    }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(-50%, -40%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(-50%, -50%, 0);
+    }
+}
+
+body:hover > #trailer {
+    opacity: 1;
+}
+
+#trailer {
+    height: 1px;
+    width: 1px;
+    background-color: rgb(218, 165, 32, 0.1);
+    mix-blend-mode: screen;
+    box-shadow: 0 0 60px 20px var(--gold);
+    border-radius: 20px;
+
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease;
+}
+
+@media (min-width: 540px) {
+    .hero h1 {
+        font-size: 7.5rem;
+    }
+}
+@media (min-width: 768px) {
+    .services .card-container {
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .hero h1 {
+        font-size: 9rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+    .tagline {
+        font-size: 1.5rem;
+    }
+
+    .button {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1350px) {
+    .services {
+        flex-direction: row;
+    }
+
+    .services .card-container {
+        width: 26rem;
+        flex-direction: column;
+    }
+}
+
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
